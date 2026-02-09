@@ -15,7 +15,10 @@ public class CrosConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173")
+                        .allowedOrigins(
+                        "http://localhost:5173",
+                        "https://rohitgusai.github.io/Smart-Workflow-Audit-Management-System/"
+                )
                         .allowedMethods("GET","POST","PUT","DELETE")
                         .allowedHeaders("*")
                         .allowCredentials(true);

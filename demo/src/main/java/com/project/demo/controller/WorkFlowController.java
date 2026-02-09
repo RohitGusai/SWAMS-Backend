@@ -17,6 +17,11 @@ public class WorkFlowController {
     @Autowired
     private WorkFlowService workFlowService;
 
+    @GetMapping("/auth/health")
+    public String health() {
+        return "API is working";
+    }
+
     @PostMapping("/user/add")
     public ResponseEntity<WorkRequestdto> addWorkFlow(@RequestBody WorkFlowRequest workFlowRequest)
     {
