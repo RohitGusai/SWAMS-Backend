@@ -1,7 +1,9 @@
 package com.project.demo.controller;
 
 import com.project.demo.dto.WorkRequestdto;
+import com.project.demo.entity.User;
 import com.project.demo.entity.WorkFlowRequest;
+import com.project.demo.repository.UserRepository;
 import com.project.demo.service.WorkFlowService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,15 @@ public class WorkFlowController {
 
     @Autowired
     private WorkFlowService workFlowService;
+
+    @GetMapping("/public/db-test")
+    public String dbTest(UserRepository repo) {
+        User u = new User();
+        u.setEmail("health@check.com");
+        u.setPassword("123");
+        repo.save(u);
+        return "DB WRITE OK";
+    }
 
     @GetMapping("/auth/health")
     public String health() {
