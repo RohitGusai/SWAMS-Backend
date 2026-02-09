@@ -36,6 +36,11 @@ public class JwtFilter extends OncePerRequestFilter {
 //        }
         String path = request.getRequestURI();
 
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         // 🔓 Skip JWT validation for public endpoints
         if (path.startsWith("/auth/")
                 || path.startsWith("/public/")) {
