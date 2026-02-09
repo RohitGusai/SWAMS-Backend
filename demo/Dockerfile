@@ -17,7 +17,7 @@ FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-COPY --form=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY --fromm=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
